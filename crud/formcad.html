@@ -1,30 +1,53 @@
+<?php
+sleep(1);
+?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="shortcut icon" href="icon/icon.png">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.16/jquery.inputmask.min.js"></script>
+    <title>LOGIN</title>
 </head>
+
 <body>
-    <h2>Cadastro de Usuário</h2>
+
+    <div class="container" id="container">
+
+        <div class="form-container sign-in" style="position: relative; top: 10%;">
+            <h2>Cadastro de Usuário</h2>
     <form action="cad.php" method="POST" enctype="multipart/form-data">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
-        <br><br>
         
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required>
-        <br><br>
         
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
-        <br><br>
         
         <label for="file">Foto de Perfil (opcional):</label>
         <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png, .gif">
-        <br><br>
         
         <button type="submit">Cadastrar</button>
     </form>
+            <a href="../index.html">Voltar</a>
+            <br>
+            <a href="../recuperar/form_recuperar.html">Recuperar senha</a>
+        </div>
+        
+    </div>
+
+
 </body>
+
 </html>

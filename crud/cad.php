@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                 $dest_path = $uploadFileDir . $newFileName;
 
                 if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                    $updateSql = "UPDATE usuario SET perfil_img = '$newFileName' WHERE id_usuario = $id_usuario";
+                    $updateSql = "INSERT INTO usuario perfil_img = '$newFileName' WHERE id_user  = $id_usuario";
                     executarSQL($conexao, $updateSql);
 
                     echo "<script>
