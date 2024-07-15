@@ -1,12 +1,12 @@
 <?php
-function conectar()
+function conn()
 {
-    require_once "config.php";
+    require_once "conn.php";
     $conexao = mysqli_connect(
-        $config['host'],
-        $config['user'],
-        $config['pass'],
-        $config['db']
+        $conn['host'],
+        $conn['user'],
+        $conn['pass'],
+        $conn['db']
     );
 
     if ($conexao === false) {
