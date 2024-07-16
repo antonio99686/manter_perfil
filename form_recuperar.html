@@ -1,0 +1,46 @@
+<?php
+sleep(1);
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="shortcut icon" href="icon/icon.png">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.16/jquery.inputmask.min.js"></script>
+    <title>Recuperar Senha</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+
+        <div class="form-container sign-in" style="position: relative; top: 30%;">
+            <h2>Recuperaão de Senha</h2>
+    <form action="email.php" method="POST" enctype="multipart/form-data">
+       
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+      
+        <button type="submit">Recuperar</button>
+    </form>
+            <a href="../index.html">Voltar</a>
+            <br>
+            <a href="../crud/formcad.html">Cadastrar</a>
+        </div>
+        
+    </div>
+
+
+</body>
+
+</html>
