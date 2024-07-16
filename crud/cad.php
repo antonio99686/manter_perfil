@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
-    $img_padrao = 'user.jpg'; // Nome da imagem padrão
+    $img_padrao = 'img/user.jpg'; // Nome da imagem padrão
 
     // Insert user data into the database with a default image
     $sql = "INSERT INTO usuario (nome, senha, email, perfil_img) VALUES ('$nome', '$senha', '$email', '$img_padrao')";
@@ -46,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                 $dest_path = $uploadFileDir . $newFileName;
 
                 if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                    $updateSql = "INSERT INTO usuario perfil_img = '$newFileName' WHERE id_user  = $id_usuario";
+                    // Update user's profile image
+                    $updateSql = "UPDATE usuario SET perfil_img = '$newFileName' WHERE id_user = $id_usuario";
                     executarSQL($conexao, $updateSql);
 
                     echo "<script>
