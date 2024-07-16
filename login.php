@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['senha
                 showConfirmButton: false,
                 timer: 1500
             }).then(() => {
-                window.location.href = 'login.php';
+                window.location.href = 'index.html';
             });
         </script>";
     }
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['senha
             showConfirmButton: false,
             timer: 1500
         }).then(() => {
-            window.location.href = 'login.php';
+            window.location.href = 'index.html';
         });
     </script>";
 }

@@ -138,7 +138,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
                 <br>
                 <div class="user3"><em><b>Senha:</b></em> <?php echo $dados['senha'] ?></div>
                 <br>
-                <img class="ims" src="../img/<?php echo $dados['perfil_img'] ?>">
+                <img class="ims" src="img/<?php echo $dados['perfil_img'] ?>">
 
 
             </div>
@@ -165,7 +165,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
                         <small class="text-muted"><?php echo $dados['nome'] ?></small>
                     </div>
                     <div class="profile-photo">
-                        <img src="../img/<?php echo $dados['perfil_img'] ?>" alt="user" id="profile-picture">
+                        <img src="img/<?php echo $dados['perfil_img'] ?>" alt="user" id="profile-picture">
                     </div>
                 </div>
             </div>
