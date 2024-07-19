@@ -51,9 +51,9 @@ if ($usuario == null) {
 $token = bin2hex(random_bytes(50));
 
 // Incluindo os arquivos necessários do PHPMailer
-require_once 'PHPMailer/src/Exception.php';
-require_once 'PHPMailer/src/PHPMailer.php';
-require_once 'PHPMailer/src/SMTP.php';
+require_once '../PHPMailer/src/Exception.php';
+require_once '../PHPMailer/src/PHPMailer.php';
+require_once '../PHPMailer/src/SMTP.php';
 include '../function/conn.php';
 
 $mail = new PHPMailer(true); // Habilita exceções

@@ -43,9 +43,9 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
 
     $newFileName = $id_user . '.' . $fileExtension;
 
-    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
+    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg','jfif');
     if (in_array($fileExtension, $allowedfileExtensions)) {
-        $uploadFileDir = '../img/';
+        $uploadFileDir = 'img/';
 
         // Verifica se o diretório de upload existe, senão, cria-o
         if (!file_exists($uploadFileDir) && !is_dir($uploadFileDir)) {
