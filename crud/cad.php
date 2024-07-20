@@ -23,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
     $email = $_POST['email'];
     $img_padrao = 'img/user.jpg'; // Nome da imagem padrão
 
-    // Insert user data into the database with a default image
+    // Insira dados do usuário no banco de dados com uma imagem padrão
     $sql = "INSERT INTO usuario (nome, senha, email, perfil_img) VALUES ('$nome', '$senha', '$email', '$img_padrao')";
     if (executarSQL($conexao, $sql)) {
-        // Get the last inserted user ID
+        // Obtenha o último ID de usuário inserido
         $id_usuario = mysqli_insert_id($conexao);
 
         // Verifica se um arquivo foi enviado via formulário
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
                 Swal.fire({
                     icon: 'success',
                     title: 'Sucesso!',
-                    text: 'Usuário cadastrado com sucesso!',
+                    text: 'Usuário cadastrado com imagem padrão!',
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {

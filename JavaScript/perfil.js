@@ -10,8 +10,9 @@ const isDarkMode = localStorage.getItem("darkMode") === "true";
 // Aplica a classe dark-mode-variables se necessário
 if (isDarkMode) {
   document.body.classList.add("dark-mode-variables");
-  darkMode.querySelector("span:nth-child(1)").classList.add("active");
   darkMode.querySelector("span:nth-child(2)").classList.add("active");
+} else {
+  darkMode.querySelector("span:nth-child(1)").classList.add("active");
 }
 
 menuBtn.addEventListener("click", () => {
@@ -25,13 +26,16 @@ closeBtn.addEventListener("click", () => {
 darkMode.addEventListener("click", () => {
   // Alterna entre os modos claro e escuro
   document.body.classList.toggle("dark-mode-variables");
-  darkMode.querySelector("span:nth-child(1)").classList.toggle("active");
-  darkMode.querySelector("span:nth-child(2)").classList.toggle("active");
+  
+  const darkIcon = darkMode.querySelector("span:nth-child(2)");
+  const lightIcon = darkMode.querySelector("span:nth-child(1)");
+  
+  // Alterna as classes dos ícones
+  darkIcon.classList.toggle("active");
+  lightIcon.classList.toggle("active");
 
   // Salva a preferência de tema no localStorage
-  const isDarkModeEnabled = document.body.classList.contains(
-    "dark-mode-variables"
-  );
+  const isDarkModeEnabled = document.body.classList.contains("dark-mode-variables");
   localStorage.setItem("darkMode", isDarkModeEnabled ? "true" : "false");
 });
 

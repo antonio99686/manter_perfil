@@ -99,7 +99,7 @@ if ($recuperar == null) {
             title: 'Sucesso',
             text: 'Nova senha cadastrada com sucesso! Faça o login para acessar o sistema.'
         }).then(() => {
-            window.location.href = '../index.php';
+            window.location.href = '../index.html';
         });
     </script>";
 }

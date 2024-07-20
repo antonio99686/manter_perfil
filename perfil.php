@@ -91,7 +91,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="shortcut icon" href="icon/icon.png">
     <link rel="stylesheet" href="css/perfil.css">
-    <title>Sentinela da fronteira</title>
+    <title>Manter Perfil </title>
 </head>
 
 <body>
@@ -152,7 +152,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
                     </span>
                 </button>
                 <div class="dark-mode">
-                    <span class="material-icons-sharp active">
+                    <span class="material-icons-sharp ">
                         light_mode
                     </span>
                     <span class="material-icons-sharp">
