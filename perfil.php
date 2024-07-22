@@ -178,6 +178,10 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
                     <button type="submit" class="form-control" style="margin-top: 10px;">Salvar Foto</button>
                 </form>
             </div>
+            <div class="box-perfil" style="margin-top: 20px;">
+                <h2>Alterar Foto </h2>
+                
+            </div>
         </div>
     </div>
     <script src="JavaScript/perfil.js"></script>
