@@ -43,7 +43,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
 
     $newFileName = $id_user . '.' . $fileExtension;
 
-    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg','jfif');
+    $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg', 'jfif');
     if (in_array($fileExtension, $allowedfileExtensions)) {
         $uploadFileDir = 'img/';
 
@@ -78,9 +78,27 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
         exit();
     }
 }
+
+// Verifica se a solicitação é para excluir a foto do perfil
+if (isset($_POST['delete_photo'])) {
+    $defaultImage = 'default.jpg'; // Define a imagem padrão
+    $deleteSql = "UPDATE usuario SET perfil_img = ? WHERE id_user = ?";
+    $stmt = mysqli_prepare($conexao, $deleteSql);
+    mysqli_stmt_bind_param($stmt, "si", $defaultImage, $id_user);
+    mysqli_stmt_execute($stmt);
+
+    // Remove o arquivo de imagem atual, se não for a imagem padrão
+    if ($dados['perfil_img'] !== $defaultImage && file_exists('img/' . $dados['perfil_img'])) {
+        unlink('img/' . $dados['perfil_img']);
+    }
+
+    $_SESSION['mensagem'] = "Foto de perfil excluída com sucesso!";
+    $_SESSION['tipo_mensagem'] = "success";
+    $_SESSION['titulo_mensagem'] = "Sucesso!";
+    header("Location: perfil.php");
+    exit();
+}
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +109,7 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="shortcut icon" href="icon/icon.png">
     <link rel="stylesheet" href="css/perfil.css">
-    <title>Manter Perfil </title>
+    <title>Manter Perfil</title>
 </head>
 
 <body>
@@ -109,14 +127,12 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
             </div>
 
             <div class="sidebar">
-
                 <a href="perfil.php" class="active">
                     <span class="material-icons-sharp">
                         person_outline
                     </span>
                     <h3>Perfil</h3>
                 </a>
-
                 <a href="logout.php">
                     <span class="material-icons-sharp">
                         logout
@@ -132,15 +148,12 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
                 <h2>Dados Usuário</h2>
                 <br>
                 <div class="user"><em><b>Nome:</b></em> <?php echo $dados['nome'] ?></div>
-
                 <br>
                 <div class="user2"><em><b>E-mail:</b></em> <?php echo $dados['email'] ?></div>
                 <br>
                 <div class="user3"><em><b>Senha:</b></em> <?php echo $dados['senha'] ?></div>
                 <br>
                 <img class="ims" src="img/<?php echo $dados['perfil_img'] ?>">
-
-
             </div>
         </main>
 
@@ -178,14 +191,21 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
                     <button type="submit" class="form-control" style="margin-top: 10px;">Salvar Foto</button>
                 </form>
             </div>
+
             <div class="box-perfil" style="margin-top: 20px;">
-                <h2>Alterar Foto </h2>
-                
+                <h2>Excluir Foto de Perfil</h2>
+                <form method="post">
+                    <input type="hidden" name="delete_photo" value="1">
+                    <button type="submit" class="form-control" style="margin-top: 10px;">Excluir Foto</button>
+                </form>
+            </div>
+            <div class="box-perfil" style="margin-top: 20px;">
+                <h2>fotos</h2>
+                <?php echo $dados['perfil_img'] ?>
             </div>
         </div>
     </div>
     <script src="JavaScript/perfil.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const avatarImage = document.querySelector('#avatar-image');

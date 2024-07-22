@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'], $_POST['senha'
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
-    $img_padrao = 'img/user.jpg'; // Nome da imagem padrão
+    $img_padrao = 'perfil2.png'; // Nome da imagem padrão
 
     // Insira dados do usuário no banco de dados com uma imagem padrão
     $sql = "INSERT INTO usuario (nome, senha, email, perfil_img) VALUES ('$nome', '$senha', '$email', '$img_padrao')";
